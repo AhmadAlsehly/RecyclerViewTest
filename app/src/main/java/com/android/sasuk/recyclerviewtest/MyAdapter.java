@@ -8,6 +8,7 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
 
-    public Context mContext;
+    private Context mContext;
     private ArrayList<Model> arrList;
     public MyAdapter(Context mContext , ArrayList<Model> arrList) {
         this.mContext = mContext;
@@ -32,7 +33,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         View view =layoutInflater.inflate(R.layout.view_raw,viewGroup , false);
         final ViewHolder viewHolder = new ViewHolder(view);
 
-        viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
+        /*viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
 
             @Override
 
@@ -41,7 +42,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 Toast.makeText(mContext , arrList.get(viewHolder.getAdapterPosition()).getName(),Toast.LENGTH_SHORT).show();
 
             }
-        });
+        });*/
 
 
 
@@ -61,11 +62,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         TextView name = null;
         TextView disc = null;
+        ImageView imageView = null;
         name = viewHolder.tV1;
         disc = viewHolder.tV2;
+        imageView=viewHolder.iM;
+
 
         name.setText(model.getName());
         disc.setText(model.getDisc());
+        imageView.setImageResource(model.getImage());
+        ;
 
 
 
@@ -81,12 +87,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
      TextView tV1 = null;
      TextView tV2 = null;
+     ImageView iM = null;
      LinearLayout linearLayout;
         public  ViewHolder (View itemView) {
             super(itemView);
             linearLayout=itemView.findViewById(R.id.linearLayout);
             tV1 = itemView.findViewById(R.id.txtName);
             tV2 = itemView.findViewById(R.id.txtbntklb);
+            iM= itemView.findViewById(R.id.img);
 
 
         }

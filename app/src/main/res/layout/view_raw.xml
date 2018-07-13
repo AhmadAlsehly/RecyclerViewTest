@@ -2,9 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="225dp"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@drawable/kh2"/>
     <TextView
         android:id="@+id/txtName"
         android:layout_width="match_parent"
@@ -19,4 +24,7 @@
         android:textSize="52sp"
 
         android:text="TextView" />
+
+
+
 </LinearLayout>
